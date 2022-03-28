@@ -46,10 +46,10 @@ public class PersistenceUserConfiguration {
         HashMap<String, Object> properties = new HashMap<>();
         properties.put(
                 "hibernate.hbm2ddl.auto",
-                env.getProperty("hibernate.direct")
+                env.getProperty("hibernate.hbm2ddl.auto")
         );
         properties.put(
-                "hibernate.direct",
+                "hibernate.dialect",
                 env.getProperty("hibernate.dialect")
         );
         em.setJpaPropertyMap(properties);

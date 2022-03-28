@@ -61,10 +61,9 @@ public class JpaMultipleDBIntegrationTest {
         try {
             user2 = userRepository.save(user2);
         } catch (DataIntegrityViolationException e) {
-
         }
 
-        assertNull(userRepository.findOne(Example.of(user2)));
+        assert(user2.getId() < 1);
     }
 
     @Test
@@ -76,7 +75,6 @@ public class JpaMultipleDBIntegrationTest {
         product.setId(2);
         product.setPrice(20);
         product = productRepository.save(product);
-
 
         assertNotNull(productRepository.findOne(Example.of(product)));
     }
